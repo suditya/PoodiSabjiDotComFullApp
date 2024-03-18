@@ -21,8 +21,11 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const cors_1 = __importDefault(require("cors"));
 const mongodb_1 = require("mongodb");
 const validation_1 = require("./services/validation");
-const DB_NAME = "Poodi-Sabji-dot-com";
-const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+const DB_NAME = "PoodiSabjiDotCom";
+// const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+// const uri =
+//   "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+const uri = "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
 const client = new mongodb_1.MongoClient(uri, {});
 const db = client.db(DB_NAME);
 const usersColl = db.collection("users");
@@ -38,8 +41,8 @@ app.use((0, cors_1.default)());
 // Middleware to parse URL-encoded bodies
 app.use(express_1.default.urlencoded({ extended: true }));
 const port = 3000;
-app.get("/test", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield db.collection("users").find({}).toArray();
+app.get("/test", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const users = yield db.collection("users").findOne({});
     console.log(users);
     res.status(200).send("testing the mongodb server");
 }));

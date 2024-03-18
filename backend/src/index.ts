@@ -11,8 +11,12 @@ import { MongoClient } from "mongodb";
 import { IUser } from "../interfaces/User";
 import { validateCredentials } from "./services/validation";
 
-const DB_NAME = "Poodi-Sabji-dot-com";
-const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+const DB_NAME = "PoodiSabjiDotCom";
+// const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+// const uri =
+//   "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+const uri =
+  "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
 const client = new MongoClient(uri, {});
 const db = client.db(DB_NAME);
 const usersColl = db.collection("users");
@@ -33,8 +37,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = 3000;
 
-app.get("/test", async (req, res) => {
-  const users = await db.collection("users").find({}).toArray();
+app.get("/test", async (_req, res) => {
+  const users = await db.collection("users").findOne({});
   console.log(users);
   res.status(200).send("testing the mongodb server");
 });
