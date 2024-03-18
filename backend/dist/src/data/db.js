@@ -1,6 +1,4 @@
 "use strict";
-// const mongoose = require("mongoose");
-// const connectionStr = "mongodb://0.0.0.0:27017/";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -11,22 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// const DB_NAME = "Poodi-Sabji-dot-com";
-// mongoose.connect(connectionStr);
-// mongoose.connection.on("error", (error: { message: any }) => {
-//   console.error(
-//     `could not connect to database ${DB_NAME}, error = `,
-//     error.message
-//   );
-//   process.exit(1);
-// });
-// mongoose.connection.on("open", function () {
-//   console.error(`connected to database ${DB_NAME}`);
-// });
 const mongodb_1 = require("mongodb");
 const DB_NAME = "Poodi-Sabji-dot-com";
-const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`; // Replace with your connection string
-const client = new mongodb_1.MongoClient(uri, {});
+let uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+if (process.env.NODE_ENV != "development" || true) {
+    uri =
+        "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+}
+// console.log(uri);
+const client = new mongodb_1.MongoClient("mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom", {});
 function connectDB() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
