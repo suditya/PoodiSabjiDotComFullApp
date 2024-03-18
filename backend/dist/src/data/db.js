@@ -11,11 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongodb_1 = require("mongodb");
 const DB_NAME = "Poodi-Sabji-dot-com";
-let uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
-if (process.env.NODE_ENV != "development" || true) {
-    uri =
-        "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
-}
+// let uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
+// if (process.env.NODE_ENV != "development" || true) {
+//   uri =
+//     "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+// }
 // console.log(uri);
 const client = new mongodb_1.MongoClient("mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom", {});
 function connectDB() {
