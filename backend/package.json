@@ -5,6 +5,7 @@
   "main": "public/src/index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
+    "start:prod": "node public/src/index.js",
     "build": "rimraf public && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add public",

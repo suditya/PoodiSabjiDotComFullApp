@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 
-require("./data/db");
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -11,12 +10,16 @@ import { MongoClient } from "mongodb";
 import { IUser } from "../interfaces/User";
 import { validateCredentials } from "./services/validation";
 
+// const DB_NAME = "sample_mflix";
 const DB_NAME = "PoodiSabjiDotCom";
+
 // const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
 // const uri =
 //   "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/PoodiSabjiDotCom?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+
 const uri =
   "mongodb+srv://suditya:Suditya%40123@poodisabjidotcom.jjmenhc.mongodb.net/?retryWrites=true&w=majority&appName=PoodiSabjiDotCom";
+
 const client = new MongoClient(uri, {});
 const db = client.db(DB_NAME);
 const usersColl = db.collection("users");
@@ -35,7 +38,7 @@ app.use(cors());
 // Middleware to parse URL-encoded bodies
 app.use(express.urlencoded({ extended: true }));
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.get("/test", async (_req, res) => {
   const users = await db.collection("users").findOne({});
@@ -346,6 +349,6 @@ app.get("/api/generate-pdf", async (req, res) => {
 
 // export { generateBillPdf, Invoice, InvoiceItem, Client };
 
-app.listen(port, () => {
-  console.log("backend listening on port : " + port);
+app.listen(PORT, () => {
+  console.log("backend listening on PORT : " + PORT);
 });
