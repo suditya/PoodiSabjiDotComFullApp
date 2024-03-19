@@ -4,7 +4,7 @@
   "description": "",
   "main": "public/index.js",
   "scripts": {
-    "start": "node public/index.js",
+    "start": "node src/index.ts",
     "start:prod": "node public/index.js",
     "build": "rimraf public && tsc",
     "ts.check": "tsc --project tsconfig.json",
