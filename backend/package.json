@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "public/src/index.js",
+  "main": "public/index.js",
   "scripts": {
-    "start": "node public/src/index.js",
-    "start:prod": "node public/src/index.js",
+    "start": "node public/index.js",
+    "start:prod": "node public/index.js",
     "build": "rimraf public && tsc",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add public",
