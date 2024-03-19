@@ -12,7 +12,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-require("./data/db");
 const express_1 = __importDefault(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
@@ -21,6 +20,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const cors_1 = __importDefault(require("cors"));
 const mongodb_1 = require("mongodb");
 const validation_1 = require("./services/validation");
+// const DB_NAME = "sample_mflix";
 const DB_NAME = "PoodiSabjiDotCom";
 // const uri = `mongodb://0.0.0.0:27017/${DB_NAME}`;
 // const uri =
@@ -40,7 +40,7 @@ app.use((0, cookie_parser_1.default)());
 app.use((0, cors_1.default)());
 // Middleware to parse URL-encoded bodies
 app.use(express_1.default.urlencoded({ extended: true }));
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 app.get("/test", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield db.collection("users").findOne({});
     console.log(users);
@@ -273,6 +273,6 @@ app.get("/api/generate-pdf", (req, res) => __awaiter(void 0, void 0, void 0, fun
     doc.end();
 }));
 // export { generateBillPdf, Invoice, InvoiceItem, Client };
-app.listen(port, () => {
-    console.log("backend listening on port : " + port);
+app.listen(PORT, () => {
+    console.log("backend listening on PORT : " + PORT);
 });
