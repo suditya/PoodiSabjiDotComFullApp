@@ -7,7 +7,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cors from "cors";
 import { MongoClient } from "mongodb";
-import { IUser } from "../interfaces/User";
+import { IUser } from "./interfaces/User";
 import { validateCredentials } from "./services/validation";
 
 // const DB_NAME = "sample_mflix";
@@ -26,8 +26,8 @@ const usersColl = db.collection("users");
 const cartItemsColl = db.collection("cartItems");
 const inventoryColl = db.collection("inventory");
 import PDFDocument from "pdfkit";
-import { Invoice, Client, InvoiceItem } from "../interfaces/Invoices";
-import { ICart } from "../interfaces/Cart";
+import { Invoice, Client, InvoiceItem } from "./interfaces/Invoices";
+import { ICart } from "./interfaces/Cart";
 dotenv.config();
 
 const app = express();
