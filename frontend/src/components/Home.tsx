@@ -37,7 +37,7 @@ const Home = () => {
       </div> */}
       <div className="wrapper">
         <div className="food-container">
-          {dishes.map((foodItem) => (
+          {(dishes?? []).map((foodItem) => (
             <FoodCard2
               src={foodItem.imgSrc}
               description={foodItem.description}

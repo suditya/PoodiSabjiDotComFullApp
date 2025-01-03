@@ -31,9 +31,9 @@ export const CartProvider: React.FC<CartProviderProps> = (props) => {
           const response = await axios.get(BACKEND_DEV_URL + "/get-cart", {
             params: { email },
           });
-          const data = await response.data;
-          console.log(data, " from Backend cart");
-          setCartItems(data.cartItems);
+          const data = await response?.data;
+          // console.log(data , " from Backend cart");
+          setCartItems(data?.cartItems);
         }
       } catch (error) {
         console.error("Error fetching data from backend:", error);
